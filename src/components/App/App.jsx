@@ -10,17 +10,17 @@ const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const statistics = [good, neutral, bad];
+  const options = ['good', 'neutral', 'bad'];
 
-  const handleIncrement = e => {
-    switch (e.target.textContent) {
-      case 'Good':
+  const handleIncrement = option => {
+    switch (option) {
+      case 'good':
         setGood(good + 1);
         break;
-      case 'Neutral':
+      case 'neutral':
         setNeutral(neutral + 1);
         break;
-      case 'Bad':
+      case 'bad':
         setBad(bad + 1);
         break;
       default:
@@ -36,10 +36,7 @@ const App = () => {
   return (
     <Container>
       <Section title={'Please leave feedback'}>
-        <FeedbackOptions
-          options={statistics}
-          onLeaveFeedBack={handleIncrement}
-        />
+        <FeedbackOptions options={options} onLeaveFeedBack={handleIncrement} />
       </Section>
       <Section title={'Statistics'}>
         {countTotalFeedback() ? (

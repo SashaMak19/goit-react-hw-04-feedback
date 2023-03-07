@@ -4,11 +4,9 @@ import { SetButton, Btn } from './FeedbackOptions.styled';
 const FeedbackOptions = ({ options, onLeaveFeedBack }) => {
   return (
     <SetButton>
-      {options.map((_, index) => (
-        <Btn key={index} type="button" onClick={onLeaveFeedBack}>
-          {index === 0 && 'Good'}
-          {index === 1 && 'Neutral'}
-          {index === 2 && 'Bad'}
+      {options.map((option, index) => (
+        <Btn key={index} type="button" onClick={() => onLeaveFeedBack(option)}>
+          {option}
         </Btn>
       ))}
     </SetButton>
